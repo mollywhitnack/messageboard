@@ -59,11 +59,12 @@ app.put('/messages/:id', (req, res) => {
   });
 });
 
-app.sort('/messages/:id', (req, res) => {
-  Message.update(req.body, req.params.id, err => {
+app.get('/messages?:', (req, res) => {
+  console.log("Req.query: ", req.query);
+  /*Message.sort(req.query, function(err) {
     if(err) return res.status(400).send(err);
     res.send(); // empty response (code 200)
-  });
+  });*/
 });
 
 app.listen(PORT, err => {

@@ -69,10 +69,25 @@ exports.update = (newMessageOb, id, cb) => {
   readMessages((err, messages) => {
     if(err) return cb(err);
     console.log(newMessageOb);
-    var newAuthor = newMessageOb['author'];
-    var newText = newMessageOb['text'];
+    
+    var message = messages.filter(messageObj => messageObj.id == id);
+
+    if(newMessageOb['author']){
+      var newAuthor = newMessageOb['author'];
+    }
+    else{
+     var newAuthor = message[0].author;
+    }
+
+    if(newMessageOb['text']){
+      var newText = newMessageOb['text'];
+    }
+    else{
+      var newText = message[0].text;
+    }
+
     //var name = "add name"
-    let messageObj = {
+   let messageObj = {
       author: newAuthor,
       text: newText,
       createdAt: moment(),
@@ -83,6 +98,14 @@ exports.update = (newMessageOb, id, cb) => {
     writeMessages(messages, cb);
   });
 }
+
+/*exports.sort = (query, cb) => {
+  readMessages((err, messages) => {
+    if(err) return cb(err);
+
+     console.log("query: " , query);
+  });
+}*/
 
 function writeMessages(messages, cb) {
   // stringify and write
