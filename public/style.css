@@ -1,27 +1,46 @@
 body { 
-  background: url(http://fullhdpictures.com/wp-content/uploads/2016/01/Smiling-Pug-Wallpaper.jpg)
-   no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  background: url(https://s-media-cache-ak0.pinimg.com/736x/01/0b/76/010b76ca38302307f33f76911b6df643.jpg)
 }
 
 .title{
   text-align: center;
+  color:#337ab7;
+  font-weight: bold;
+  font-size:50px;
+  background-color: none;
+  margin-top: 0px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-shadow: 2px 2px white;
+ 
 }
 
 .authorTemp{
   border: 1px solid #000;
   text-align:center;
   background-color: white;
+  width:200px;
+  margin: 0 auto;
+  margin-bottom: 5px;
 }
 
 .messageTemp{
   border: 1px solid #000;
-  text-align: center;
   background-color: white;
+  width:95%;
+  margin: 0 auto;
+
 }
+
+.messageList, .addNewMessageCont{
+  background-color: white;
+  width:75%;
+  margin:0 auto;
+  padding-top: 20px
+  border: 1px solid #000;
+  padding-top: 10px;
+}
+
 
 
 .btnCont{
@@ -40,6 +59,7 @@ body {
 
 .addNewMessageCont{
   text-align:center;
+  padding-bottom: 10px;
 }
 
 
