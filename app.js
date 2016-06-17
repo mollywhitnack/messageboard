@@ -1,7 +1,8 @@
 'use strict';
 
-const PORT = 8000;
-
+//const PORT = 8000;
+//for heroku use process port, otherwise if local use 80000
+const PORT = process.env.PORT || 8000;
 
 const bodyParser = require('body-parser');
 const express = require('express');
