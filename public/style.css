@@ -1,12 +1,28 @@
+body { 
+  background: url(http://fullhdpictures.com/wp-content/uploads/2016/01/Smiling-Pug-Wallpaper.jpg)
+   no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.title{
+  text-align: center;
+}
+
 .authorTemp{
   border: 1px solid #000;
   text-align:center;
+  background-color: white;
 }
 
 .messageTemp{
   border: 1px solid #000;
   text-align: center;
+  background-color: white;
 }
+
 
 .btnCont{
   text-align:center;
@@ -26,6 +42,7 @@
   text-align:center;
 }
 
+
 .authorInput, .textInput{
   text-align:center;
 }
@@ -37,6 +54,10 @@
 .txt{
   width: 75%;
 
+}
+
+.messageBoardArea{
+  text-align: center;
 }
 
 .submitM{
