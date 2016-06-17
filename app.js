@@ -59,7 +59,7 @@ app.put('/messages/:id', (req, res) => {
   });
 });
 
-app.get('/messages?:', (req, res) => {
+app.get('/messages?sort=:author:', (req, res) => {
   console.log("Req.query: ", req.query);
   /*Message.sort(req.query, function(err) {
     if(err) return res.status(400).send(err);

@@ -1,0 +1,46 @@
+.authorTemp{
+  border: 1px solid #000;
+  text-align:center;
+}
+
+.messageTemp{
+  border: 1px solid #000;
+  text-align: center;
+}
+
+.btnCont{
+  text-align:center;
+}
+
+.btn-danger, .btn-warning{
+  margin-bottom: 2%;
+  margin-left:2%;
+  margin-right:2%;
+}
+
+.template{
+  display:none;
+}
+
+.addNewMessageCont{
+  text-align:center;
+}
+
+.authorInput, .textInput{
+  text-align:center;
+}
+
+.showInput{
+  display: none;
+}
+
+.txt{
+  width: 75%;
+
+}
+
+.submitM{
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 100px;
+}

@@ -2,10 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Message Board</title>
+  <title>To Do List</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <script src="http://code.jquery.com/jquery-3.0.0.min.js"></script>
+  <script src="/main.js"></script>
 </head>
 <body>
-<h1>Message Board</h1>
+
+<h1 class = "title">Message Board</h1>
+
+<span class = "messageBoardArea"></span>
+
+<div class = "addNewMessageCont"><button class="btn btn-primary addNewMessage">Add New Message</button></div>
+
+<div class = "showInput">
+  <div class = "authorInput"><form class = "inputs"> Author: <input type = text class = "author"> </form> </div>
+  <div class = "textInput">Message: <form class = "inputs"> <input type = text class = "txt"> </form> </div>
+  <div class = "submitM"><button class = "btn btn-primary submitMessage">Submit</button> </div>
+
+</div>
+
+<div class = "template">
+  <div class = "container authorTemp">author</div>
+  <div class="container messageTemp">message</div>
+  <div class="container btnCont" ><button class = "deleteMessage btn btn-danger">Delete Message</button><button class="updateMessage btn btn-warning">Update Message</button>
+</div></div>
   
+
 </body>
 </html>
