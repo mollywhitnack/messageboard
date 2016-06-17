@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
-const message = require('./messages');
+const Message = require('./message');
 
 let app = express();
 
@@ -24,27 +24,47 @@ app.get('/', function(req, res) {
   res.sendFile(indexPath);
 });
 
-app.get('/names', function(req, res) {
-  Name.get(function(err, names) {
+app.get('/messages', function(req, res) {
+  Message.get(function(err, messages) {
     if(err) return res.status(400).send(err);
-    res.send(names);
+    res.send(messages);
   });
 });
 
-app.post('/names', function(req, res) {
-  Name.create(req.body.name, function(err) {
+app.get('/messages/:id', function(req, res) {
+  Message.getById(req.params.id, function(err, messages) {
+    if(err) return res.status(400).send(err);
+    res.send(messages);
+  });
+});
+
+app.post('/messages', function(req, res) {
+  Message.create(req.body.text, req.body.author, function(err) {
     if(err) return res.status(400).send(err);
     res.send(); // empty response (code 200)
   });
 });
 
-app.delete('/names/:id', (req, res) => {
-  Name.delete(req.params.id, err => {
+app.delete('/messages/:id', (req, res) => {
+  Message.delete(req.params.id, err => {
     if(err) return res.status(400).send(err);
     res.send(); // empty response (code 200)
   });
 });
 
+app.put('/messages/:id', (req, res) => {
+  Message.update(req.body, req.params.id, err => {
+    if(err) return res.status(400).send(err);
+    res.send(); // empty response (code 200)
+  });
+});
+
+app.sort('/messages/:id', (req, res) => {
+  Message.update(req.body, req.params.id, err => {
+    if(err) return res.status(400).send(err);
+    res.send(); // empty response (code 200)
+  });
+});
 
 app.listen(PORT, err => {
   console.log(err || `Express listening on port ${PORT}`);
