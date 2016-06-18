@@ -9,14 +9,14 @@ body {
 
 .title{
   text-align: center;
-  color:#337ab7;
+  color:#ff00ff;
   font-weight: bold;
   font-size:60px;
   background-color: none;
   margin-top: 0px;
   padding-top: 20px;
   padding-bottom: 15px;
-  text-shadow: 2px 2px white;
+  text-shadow: 2px 2px #cc00cc;
  
 }
 
@@ -36,20 +36,22 @@ body {
 }
 
 .authorTemp{
-  border: 1px solid #000;
+  border: 1px solid #ff00ff;
   text-align:center;
   background-color: white;
   width:200px;
   margin: 0 auto;
   margin-bottom: 5px;
+  margin-top: 5px;
 }
 
 .messageTemp{
-  border: 1px solid #000;
+  border: 1px solid #ff00ff;
   background-color: white;
   width:80%;
   margin: 0 auto;
   padding: 10px;
+  margin-top: 5px;
 
 }
 
@@ -84,6 +86,7 @@ body {
 }
 .imageURLTemp{
   width:100px;
+  border: 3px solid #ff00ff;
 }
 
 .authorInput, .textInput, .imageURLInput{
@@ -95,12 +98,12 @@ body {
 }
 
 .sortByAuthor{
-  margin-left: 37%;
+  margin-left: 35%;
   margin-bottom: 10px;
 }
 
 .sortByTime{
-  margin-left:3%;
+  margin-left:2%;
   margin-top: -10px;
 }
 
@@ -112,11 +115,12 @@ body {
   height:150px;
   margin:0 auto;
   margin-bottom: -20px;
-  padding-bottom: 200px;
+  padding-bottom: 300px;
 }
 
 .txt{
   width: 75%;
+  margin-top:5px;
 }
 
 .messageBoardArea{
@@ -129,8 +133,18 @@ body {
 }
 
 .cancelAdd{
-  margin-top: -56px;
+  margin-top: -45px;
   margin-left:52%;
+}
+
+.author{
+  height:30px;
+}
+.updateMessage, .deleteMessage{
+  margin-top:5px;
+  background-color: #ff00ff;
+  color:white;
+  border-color:#cc00cc;
 }
 
 @media screen and (max-width: 433px){

@@ -14,18 +14,19 @@
 
   <h1 class = "title">PUGSPUGSPUGS</h1>
 
-  <button class = "btn btn-info sortByAuthor">Sort By Author</button>
-  <button class = "btn btn-info sortByTime">Most Recent First</button>
+  <button class = "btn btn-info sortByAuthor"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+Sort By Author</button>
+  <button class = "btn btn-info sortByTime"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Most Recent First</button>
 
   <span class = "messageBoardArea"></span>
 
   <div class = "addNewMessageCont"><button class="btn btn-primary addNewMessage">Add New Message</button></div>
 
   <div class = "showInput">
-    <div class = "authorInput"><form class = "inputs" required> Author: <input type = text class = "author"> </form> </div>
-    <div class = "textInput">Message: <form class = "inputs" required> <input type = text class = "txt"> </form> </div>
+    <div class = "authorInput"><form class = "inputs" required> <textarea type = "text" class = "author" placeholder="Author"> </textarea></form> </div>
+    <div class = "textInput"> <form class = "inputs" required> <textarea type = "text" class = "txt" rows="5" placeholder="Enter Message"> </textarea></form> </div>
 
-    <div class = "imageURLInput">image: 
+     <div class = "imageURLInput">Image:
       <form action="action_page.php" class = "inputs">
         <select class="pugs">
           <option value="https://s-media-cache-ak0.pinimg.com/736x/76/b3/88/76b38880a3a32ad233422c7922d1f7d4.jpg">Ugly Pug</option> 
@@ -49,8 +50,8 @@
     <img class=" imageURLTemp">
     <div class = "authorTemp">author</div>
     <div class=" messageTemp">message</div>
-    <button class = "deleteMessage btn btn-danger">Delete Message</button>
-    <button class="updateMessage btn btn-warning">Update Message</button>
+    <button class = "deleteMessage btn btn-info">Delete Message</button>
+    <button class="updateMessage btn btn-info">Update Message</button>
   </div>
 
 </div>

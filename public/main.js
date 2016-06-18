@@ -24,7 +24,7 @@ function loadPage(){
 
 $.get('messages')
  .done(function (data){
-    console.log("data: " , data);
+    //console.log("data: " , data);
     var $messages = [];
     for(var  i=0;  i<data.length; i++){
       var $span = $('.template').clone();
@@ -33,7 +33,7 @@ $.get('messages')
       var id = data[i].id;
       var timestamp = data[i].createdAt;
       var imageURL = data[i].imageURL;
-      console.log("id: ", id);
+      //console.log("id: ", id);
       //console.log("author: " , author);
       //console.log("text: " , text);
       $span.find('.authorTemp').text(author);
@@ -57,7 +57,7 @@ $.get('messages')
 
 
 function addNewMessage(){
-  console.log("In ADD MESSAGE");
+  //console.log("In ADD MESSAGE");
   $('.showInput').show();
   $('.addNewMessage').hide();
   $('.cancelAdd').show();
@@ -69,7 +69,7 @@ function addNewMessage(){
 function submitMessage(){
   $('.showInput').hide();
   $('.addNewMessage').show();
-  console.log("submit");
+  //console.log("submit");
   var authory  = $('.author').val();
   var texty  = $('.txt').val();
   //var imageURLy  = $('.imageURL').val();
@@ -104,8 +104,8 @@ $.ajax({
 function deleteMessage(){
   cancelAdd();
   cancelEdit();
-  console.log("In delete");
-  console.log($(this).data('id'));
+  //console.log("In delete");
+  //console.log($(this).data('id'));
   var id = $(this).data('id');
 
   var urly = `/messages/${id}`
@@ -142,7 +142,7 @@ function updateMessage(event){
   var author = $(this).data('author');
   var text = $(this).data('text');
   var imageURL = $(this).data('imageURL');
-  console.log("id in update: ", id);
+  //console.log("id in update: ", id);
   $('.submitEdit').data('id', id);
   $('.author').val(author);
   $('.txt').val(text);
@@ -160,13 +160,13 @@ function submitUpdtate(event){
   var newText = $('.txt').val();
   var newImageURL = $('.imageURL').val();
 
-  console.log("new: ",newAuthor, " , " , newText);
+  //console.log("new: ",newAuthor, " , " , newText);
   var id = $(this).data('id');
 
-  console.log("id in submit: ", id);
+  //console.log("id in submit: ", id);
   var urly = `/messages/${id}`;
   var newOb = {author: `${newAuthor}`, text: `${newText}`, imageURL: `${newImageURL}`};
-  console.log("new ob: ", newOb);
+  //console.log("new ob: ", newOb);
 
   $.ajax({
     url: urly,
@@ -200,7 +200,7 @@ function sortByAuthor(){
 
  $.get(urly)
  .done(function (data){
-    console.log("data: " , data);
+    //console.log("data: " , data);
     loadPage();
  })
  .fail((jq, err, status )=> console.log("error : ", err, " status ", status));
@@ -211,7 +211,7 @@ var urly = `messages/?sort=timeStamp`;
 
  $.get(urly)
  .done(function (data){
-    console.log("data: " , data);
+    //console.log("data: " , data);
     loadPage();
  })
  .fail((jq, err, status )=> console.log("error : ", err, " status ", status));
