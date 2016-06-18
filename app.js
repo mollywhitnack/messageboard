@@ -19,6 +19,15 @@ app.use(bodyParser.json());
 // static routing!!  (frontend css, js, etc.)
 app.use(express.static('public'));
 
+/*app.get('/messages', (req, res) => {
+  console.log("Req.query: ", req.query);
+  Message.sort(req.query, function(err) {
+    if(err) return res.status(400).send(err);
+    res.send(); // empty response (code 200)
+  });
+});*/
+
+
 // defines a GET request to a url
 app.get('/', function(req, res) {
   let indexPath = path.join(__dirname, 'index.html');
@@ -26,9 +35,17 @@ app.get('/', function(req, res) {
 });
 
 app.get('/messages', function(req, res) {
+
   Message.get(function(err, messages) {
     if(err) return res.status(400).send(err);
     res.send(messages);
+  });
+
+  console.log("Req.query: ", req.query);
+  
+  Message.sort(req.query, function(err) {
+    if(err) return res.status(400).send(err);
+    res.send(); // empty response (code 200)
   });
 });
 
@@ -40,7 +57,7 @@ app.get('/messages/:id', function(req, res) {
 });
 
 app.post('/messages', function(req, res) {
-  Message.create(req.body.text, req.body.author, function(err) {
+  Message.create(req.body.text, req.body.author, req.body.imageURL, function(err) {
     if(err) return res.status(400).send(err);
     res.send(); // empty response (code 200)
   });
@@ -54,19 +71,14 @@ app.delete('/messages/:id', (req, res) => {
 });
 
 app.put('/messages/:id', (req, res) => {
+  console.log("body: ", req.body, "params.id: ",req.params.id);
   Message.update(req.body, req.params.id, err => {
     if(err) return res.status(400).send(err);
     res.send(); // empty response (code 200)
   });
 });
 
-app.get('/messages?sort=:author:', (req, res) => {
-  console.log("Req.query: ", req.query);
-  /*Message.sort(req.query, function(err) {
-    if(err) return res.status(400).send(err);
-    res.send(); // empty response (code 200)
-  });*/
-});
+
 
 app.listen(PORT, err => {
   console.log(err || `Express listening on port ${PORT}`);

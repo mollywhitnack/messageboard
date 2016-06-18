@@ -14,10 +14,11 @@ function init(){
   $('.messageBoardArea').on('click', '.updateMessage',  updateMessage);
   $('.submitEdit').on('click', submitUpdtate);
  //$('.toDoList').on('click', '.Done',  taskCheck);
-
+  $('.cancelAdd').click(cancelAdd);
+  $('.cancelEdit').click(cancelEdit);
+  $('.sortByAuthor').click(sortByAuthor);
+  $('.sortByTime').click(sortByTime);
 }
-
-
 
 function loadPage(){
 
@@ -31,17 +32,20 @@ $.get('/messages')
       var text = data[i].text;
       var id = data[i].id;
       var timestamp = data[i].createdAt;
+      var imageURL = data[i].imageURL;
       console.log("id: ", id);
       //console.log("author: " , author);
       //console.log("text: " , text);
       $span.find('.authorTemp').text(author);
       $span.find('.messageTemp').text(text);
+      $span.find('.imageURLTemp').attr('src', `${imageURL}`);
       $span.find('.deleteMessage').data('id', id);
       //stroe errrything for update
       $span.find('.updateMessage').data('id', id);
-      /*$span.find('.updateMessage').data('author', author);
+      $span.find('.updateMessage').data('author', author);
       $span.find('.updateMessage').data('text', text);
-      $span.find('.updateMessage').data('timestamp', timestamp);*/
+      $span.find('.updateMessage').data('timestamp', timestamp);
+      $span.find('.updateMessage').data('imageURL', imageURL);
 
       $span.removeClass('template');
       $messages.push($span);
@@ -56,6 +60,10 @@ function addNewMessage(){
   console.log("HERE");
   $('.showInput').show();
   $('.addNewMessage').hide();
+  $('.cancelAdd').show();
+  $('.author').val('');
+  $('.txt').val('');
+  $('.imageURL').val('');
 }
 
 function submitMessage(){
@@ -64,9 +72,14 @@ function submitMessage(){
   console.log("submit");
   var authory  = $('.author').val();
   var texty  = $('.txt').val();
+  //var imageURLy  = $('.imageURL').val();
+  var imageURLy = $( ".pugs option:selected" ).val();
+  console.log("image url: ", imageURLy);
+
   $('.author').val('');
   $('.txt').val('');
-  var formData = {author : authory, text : texty}; //Array 
+  $('.imageURL').val('');
+  var formData = {author : authory, text : texty, imageURL : imageURLy}; //Array 
  
 $.ajax({
     url : '/messages',
@@ -89,6 +102,8 @@ $.ajax({
 }
 
 function deleteMessage(){
+  cancelAdd();
+  cancelEdit();
   console.log("In delete");
   console.log($(this).data('id'));
   var id = $(this).data('id');
@@ -114,131 +129,92 @@ function deleteMessage(){
 
 }
 
-function updateMessage(){
+function updateMessage(event){
+  event.preventDefault();
+  $('.cancelAdd').hide();
+  $('.cancelEdit').show();
   console.log("HERE");
   $('.showInput').show();
   $('.addNewMessage').hide();
   $('.submitMessage').hide();
   $('.submitEdit').show();
-  var id = $('.updateMessage').data('id');
-  /*var author = $('.updateMessage').data('author');
-  var text = $('.updateMessage').data('text');
-  var time = $('.updateMessage').data('timestamp');*/
+  var id = $(this).data('id');
+  var author = $(this).data('author');
+  var text = $(this).data('text');
+  var imageURL = $(this).data('imageURL');
+  console.log("id in update: ", id);
   $('.submitEdit').data('id', id);
-
+  $('.author').val(author);
+  $('.txt').val(text);
+  $('.imageURL').val(imageURL);
 }
 
-function submitUpdtate(){
+//1f949a57-60ad-429c-8699-c72144363b0f is 4
 
+function submitUpdtate(event){
+  event.preventDefault();
+  cancelEdit();
+  $('.showInput').hide();
+  $('.addNewMessage').show();
+  var newAuthor = $('.author').val();
+  var newText = $('.txt').val();
+  var newImageURL = $('.imageURL').val();
 
-  if($('.author').val()){
-    var newAuthor = $('.author').val();
-    console.log("new auth " ,newAuthor );
-  }
-  else{
-    var newAuthor = messageToEdit['author'];
-  }
-
-      //if text is updated
-  if($('.txt').val()){
-    var newText = $('.txt').val();
-    console.log("new text " ,newText );
-  }
-  else{
-    var newText= messageToEdit['text'];
-  } 
-
-  console.log($(this).data('id'));
+  console.log("new: ",newAuthor, " , " , newText);
   var id = $(this).data('id');
-
 
   console.log("id in submit: ", id);
   var urly = `/messages/${id}`;
+  var newOb = {author: `${newAuthor}`, text: `${newText}`, imageURL: `${newImageURL}`};
+  console.log("new ob: ", newOb);
 
-
-$.ajax({
-  url: urly,
-  type: 'PUT',
-  data: `{}`,
-  success: function(data) {
-    alert('Load was performed.');
-  }
-});
-
-  /*$.get('/messages')
-   .done(function (data){
-      console.log("data: " , data);
-      var messages = [];
-      for(var  i=0;  i<data.length; i++){
-        if(data[i].id === id){
-          var messageToEdit = data[i].id;
-        }
-        else{
-          messages.push(data[i]);
-        }
-      }
-      console.log("In edit");
-      console.log(messages);
-      console.log(messageToEdit);
-
-      //if author is updated
-      if($('.author').val()){
-       var newAuthor = $('.author').val();
-       console.log("new auth " ,newAuthor );
-      }
-      else{
-        var newAuthor = messageToEdit['author'];
-      }
-
-      //if text is updated
-      if($('.txt').val()){
-        var newText = $('.txt').val();
-        console.log("new text " ,newText );
-      }
-      else{
-        var newText= messageToEdit['text'];
-      } 
-
-
-
-      /*$.ajax({
-       url: urly,
-       type: 'PUT',
-       data: "name=John&location=Boston",
-       success: function(data) {
-        alert('Load was performed.');
-       }
-      });
-    })
-    .fail((jq, err, status )=> console.log("error : ", err, " status ", status));*/
-  }
-
-
- /* $.ajax({
-    url : '/messages',
-    type: "POST",
-    data : formData,
-    success: function(data, textStatus, jqXHR)
-    {
-      console.log("data: " , data);
+  $.ajax({
+    url: urly,
+    type: 'PUT',
+    dataType: 'json',
+    data: newOb,
+    success: function(data, status, jqXHR){
+      console.log("stat: ", status);
       loadPage();
-        //data - response from server
     },
-    error: function (jqXHR, status, error)
-    {
-       console.log("error: " , error);
-       console.log("status: " , status);
- 
+    error: function(jqXHR, status, errorThrown){
+      console.log("errthr: " ,errorThrown );
+      loadPage();
     }
+  })
+}
 
-});*/
+function cancelAdd(){
+  $('.showInput').hide();
+  $('.addNewMessage').show();
+}
 
+function cancelEdit(){
+  $('.showInput').hide();
+  $('.addNewMessage').show();
+  $('.cancelEdit').hide();
+}
 
+function sortByAuthor(){
+  var urly = `messages/?sort=author`;
 
+ $.get(urly)
+ .done(function (data){
+    console.log("data: " , data);
+    loadPage();
+ })
+ .fail((jq, err, status )=> console.log("error : ", err, " status ", status));
+}
 
- /* $.post('/messages', function(text, author))
-   .done(function (data){
-    })
-   .fail((jq, err, status )=> console.log("error : ", err, " status ", status));
-}*/
+function sortByTime(){
+var urly = `messages/?sort=timeStamp`;
+
+ $.get(urly)
+ .done(function (data){
+    console.log("data: " , data);
+    loadPage();
+ })
+ .fail((jq, err, status )=> console.log("error : ", err, " status ", status));
+}
+
 

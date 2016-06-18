@@ -6,20 +6,27 @@ body {
   text-align: center;
   color:#337ab7;
   font-weight: bold;
-  font-size:50px;
+  font-size:60px;
   background-color: none;
   margin-top: 0px;
   padding-top: 5px;
-  padding-bottom: 5px;
+  padding-bottom: 15px;
   text-shadow: 2px 2px white;
  
+}
+
+.cancelEdit{
+  display: none;
+  margin-left:52%;
+  margin-top: -85px;
+
 }
 
 .submitEdit{
   display: none;
   text-align: center;
-  margin-left:45%;
-  margin-top: -150px;
+  margin-left:35%;
+  margin-top: 0px;
 
 }
 
@@ -35,18 +42,18 @@ body {
 .messageTemp{
   border: 1px solid #000;
   background-color: white;
-  width:95%;
+  width:80%;
   margin: 0 auto;
+  padding: 10px;
 
 }
 
 .messageList, .addNewMessageCont{
-  background-color: white;
+  /*background: url(http://www.themesltd.com/headers2/pugs_and_kisses.png);*/
+  background-color: pink;
   width:75%;
   margin:0 auto;
-  padding-top: 20px
-  border: 1px solid #000;
-  padding-top: 10px;
+  padding-top: 30px
 }
 
 
@@ -67,26 +74,44 @@ body {
 
 .addNewMessageCont{
   text-align:center;
-  padding-bottom: 10px;
+  padding-bottom: 40px;
+  margin-bottom: 100px;
+}
+.imageURLTemp{
+  width:100px;
 }
 
-
-.authorInput, .textInput{
+.authorInput, .textInput, .imageURLInput{
   text-align:center;
 }
 
+.imageURL{
+  display:none;
+}
+
+.sortByAuthor{
+  margin-left: 37%;
+  margin-bottom: 10px;
+}
+
+.sortByTime{
+  margin-left:3%;
+  margin-top: -10px;
+}
+
+
 .showInput{
   display: none;
-  background-color: white;
+  background-color: pink;
   width:75%;
   height:150px;
   margin:0 auto;
   margin-bottom: -20px;
+  padding-bottom: 200px;
 }
 
 .txt{
   width: 75%;
-
 }
 
 .messageBoardArea{
@@ -94,7 +119,12 @@ body {
 }
 
 .submitM{
-  text-align: center;
+  margin-left: 40%;
   margin-top: 10px;
-  margin-bottom: 100px;
+}
+
+.cancelAdd{
+  margin-top: -56px;
+  margin-left:52%;
+
 }
