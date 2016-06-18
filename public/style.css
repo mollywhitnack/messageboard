@@ -84,6 +84,11 @@ body {
   padding-bottom: 40px;
   margin-bottom: 0px;
 }
+
+.addNewMessage{
+  background-color: #cc00cc;
+  color:white;
+}
 .imageURLTemp{
   width:100px;
   border: 3px solid #ff00ff;
@@ -100,11 +105,16 @@ body {
 .sortByAuthor{
   margin-left: 35%;
   margin-bottom: 10px;
+  background-color: #ff00ff;
+  color:white;
+
 }
 
 .sortByTime{
   margin-left:2%;
   margin-top: -10px;
+  background-color: #ff00ff;
+  color:white;
 }
 
 
