@@ -1,5 +1,10 @@
 body { 
   background: url(https://s-media-cache-ak0.pinimg.com/736x/01/0b/76/010b76ca38302307f33f76911b6df643.jpg)
+
+}
+
+.outer{
+  margin-bottom: 100px;
 }
 
 .title{
@@ -9,7 +14,7 @@ body {
   font-size:60px;
   background-color: none;
   margin-top: 0px;
-  padding-top: 5px;
+  padding-top: 20px;
   padding-bottom: 15px;
   text-shadow: 2px 2px white;
  
@@ -75,7 +80,7 @@ body {
 .addNewMessageCont{
   text-align:center;
   padding-bottom: 40px;
-  margin-bottom: 100px;
+  margin-bottom: 0px;
 }
 .imageURLTemp{
   width:100px;
@@ -126,5 +131,12 @@ body {
 .cancelAdd{
   margin-top: -56px;
   margin-left:52%;
+}
 
+@media screen and (max-width: 433px){
+    .sortByTime {
+      margin-left:35%;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      }
 }

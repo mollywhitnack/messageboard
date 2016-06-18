@@ -142,6 +142,7 @@ exports.sort = (query, cb) => {
         return 0;
      });
     }
+    
     writeMessages(messages, cb);
   });
 }

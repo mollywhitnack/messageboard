@@ -10,45 +10,49 @@
 </head>
 <body>
 
-<h1 class = "title">PUGSPUGSPUGS</h1>
+<div class = "container outer">
 
-<button class = "btn btn-info sortByAuthor">Sort By Author</button>
-<button class = "btn btn-info sortByTime">Most Recent First</button>
+  <h1 class = "title">PUGSPUGSPUGS</h1>
 
-<span class = "messageBoardArea"></span>
+  <button class = "btn btn-info sortByAuthor">Sort By Author</button>
+  <button class = "btn btn-info sortByTime">Most Recent First</button>
 
-<div class = "addNewMessageCont"><button class="btn btn-primary addNewMessage">Add New Message</button></div>
+  <span class = "messageBoardArea"></span>
 
-<div class = "showInput">
-  <div class = "authorInput"><form class = "inputs" required> Author: <input type = text class = "author"> </form> </div>
-  <div class = "textInput">Message: <form class = "inputs" required> <input type = text class = "txt"> </form> </div>
-  <div class = "imageURLInput">image: 
+  <div class = "addNewMessageCont"><button class="btn btn-primary addNewMessage">Add New Message</button></div>
 
-<form action="action_page.php" class = "inputs">
-  <select class="pugs">
-    <option value="https://s-media-cache-ak0.pinimg.com/736x/76/b3/88/76b38880a3a32ad233422c7922d1f7d4.jpg">Ugly Pug</option> 
-    <option value="http://fullhdpictures.com/wp-content/uploads/2016/01/Smiling-Pug-Wallpaper.jpg">Smiling Pug</option> 
-    <option value="http://meanmugpug.com/img/IMG_9832.jpg"> Working Pug</option> 
-    <option value="https://s-media-cache-ak0.pinimg.com/736x/fc/bc/a4/fcbca46dadd46fff8e2047f0707669e0.jpg">Over it Pug</option> 
-    <option value="http://image.shutterstock.com/z/stock-photo-little-fat-pug-sitting-on-sidewalk-in-summer-park-206851003.jpg">Fat Pug</option> 
-    <option value="http://www.funnyjunksite.com/pictures/wp-content/uploads/2013/09/Funny-Pug.jpg">Wizard Pug</option> 
-  </select>
-  <input type="submit" class = "imageURL">
-</form>
+  <div class = "showInput">
+    <div class = "authorInput"><form class = "inputs" required> Author: <input type = text class = "author"> </form> </div>
+    <div class = "textInput">Message: <form class = "inputs" required> <input type = text class = "txt"> </form> </div>
 
+    <div class = "imageURLInput">image: 
+      <form action="action_page.php" class = "inputs">
+        <select class="pugs">
+          <option value="https://s-media-cache-ak0.pinimg.com/736x/76/b3/88/76b38880a3a32ad233422c7922d1f7d4.jpg">Ugly Pug</option> 
+          <option value="http://fullhdpictures.com/wp-content/uploads/2016/01/Smiling-Pug-Wallpaper.jpg">Smiling Pug</option> 
+          <option value="http://meanmugpug.com/img/IMG_9832.jpg"> Working Pug</option> 
+          <option value="https://s-media-cache-ak0.pinimg.com/736x/fc/bc/a4/fcbca46dadd46fff8e2047f0707669e0.jpg">Over it Pug</option> 
+          <option value="http://image.shutterstock.com/z/stock-photo-little-fat-pug-sitting-on-sidewalk-in-summer-park-206851003.jpg">Fat Pug</option> 
+          <option value="http://www.funnyjunksite.com/pictures/wp-content/uploads/2013/09/Funny-Pug.jpg">Wizard Pug</option> 
+        </select>
+        <input type="submit" class = "imageURL">
+      </form>
+    </div>
+
+    <div class = "submitM"><button class = "btn btn-primary submitMessage">Submit</button> </div>
+    <div class = "submitE"><button class = "btn btn-primary submitEdit">Submit</button> </div>
+    <button class = "btn btn-danger cancelAdd">Cancel</button> </div>
+    <button class = "btn btn-danger cancelEdit">Cancel</button> </div>
   </div>
-  <div class = "submitM"><button class = "btn btn-primary submitMessage">Submit</button> </div>
-  <div class = "submitE"><button class = "btn btn-primary submitEdit">Submit</button> </div>
-  <button class = "btn btn-secondary cancelAdd">Cancel</button> </div>
-  <button class = "btn btn-secondary cancelEdit">Cancel</button> </div>
-</div>
 
-<div class = "template messageList">
-  <img class=" imageURLTemp">
-  <div class = "authorTemp">author</div>
-  <div class=" messageTemp">message</div>
-  <button class = "deleteMessage btn btn-danger">Delete Message</button>
-  <button class="updateMessage btn btn-warning">Update Message</button>
+  <div class = "template messageList">
+    <img class=" imageURLTemp">
+    <div class = "authorTemp">author</div>
+    <div class=" messageTemp">message</div>
+    <button class = "deleteMessage btn btn-danger">Delete Message</button>
+    <button class="updateMessage btn btn-warning">Update Message</button>
+  </div>
+
 </div>
 
 </body>
