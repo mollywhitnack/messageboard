@@ -5,7 +5,9 @@ const path = require('path');
 const uuid = require('uuid');
 const moment = require('moment');
 
-const dataPath = path.join(__dirname, 'data.json');
+const dataPath = path.join(__dirname, '../data.json');
+//const dataPath = path.join(__dirname, '../data', 'names.json');
+
 
 exports.get = cb => {
   readMessages(cb);
@@ -152,6 +154,3 @@ function writeMessages(messages, cb) {
   // stringify and write
   fs.writeFile(dataPath, JSON.stringify(messages), cb);
 }
-
-
-

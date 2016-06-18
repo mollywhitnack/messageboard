@@ -22,7 +22,7 @@ function init(){
 
 function loadPage(){
 
-$.get('/messages')
+$.get('messages')
  .done(function (data){
     console.log("data: " , data);
     var $messages = [];
@@ -57,7 +57,7 @@ $.get('/messages')
 
 
 function addNewMessage(){
-  console.log("HERE");
+  console.log("In ADD MESSAGE");
   $('.showInput').show();
   $('.addNewMessage').hide();
   $('.cancelAdd').show();
